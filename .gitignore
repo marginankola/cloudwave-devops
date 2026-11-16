@@ -1,0 +1,69 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+# AWS credentials
+.aws/
+.aws-credentials
+credentials
+*.tfvars
+*.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
+.terraformrc
+terraform.rc
+
+# Additional private keys and certificates
+*.crt
+*.cer
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# FiveM / txAdmin sensitive data
+txData/
+server.cfg
+server.cfg.bkp
+admins.json
+*.db
+*.sqlite
+*.sqlite3
+playersDB.json
+.id
+
+# Runtime files
+cache/
+crashes/
+logs/
+*.log
+*.dump
+*.core
+
+# Backups and archives
+backups/
+*.tar
+*.tar.gz
+*.zip
+*.7z
+
+# Operating system / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Terraform generated files
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json

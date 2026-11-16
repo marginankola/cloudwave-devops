@@ -1,0 +1,44 @@
+
+#!/bin/bash
+
+# Cloudwave FiveM Server Management
+# Ubuntu Linux - manual startup only
+
+SESSION="cloudwave-txadmin"
+SERVER_DIR="/opt/cloudwave/fxserver"
+
+case "${1:-start}" in
+
+  start)
+    if screen -list | grep -q "\.${SESSION}[[:space:]]"; then
+      echo "Cloudwave is already running."
+    else
+      cd "$SERVER_DIR" || exit 1
+      screen -dmS "$SESSION" ./run.sh
+      sleep 3
+
+      if screen -list | grep -q "\.${SESSION}[[:space:]]"; then
+        echo "Cloudwave txAdmin started."
+        echo "FiveM auto-start is controlled by txAdmin."
+      else
+        echo "Startup failed. Check the logs."
+        exit 1
+      fi
+    fi
+    ;;
+
+  status)
+    screen -ls
+    ss -lntup | grep -E '40120|30120' || true
+    ;;
+
+  logs)
+    tail -f "$SERVER_DIR/txData/default/logs/fxserver.log"
+    ;;
+
+  *)
+    echo "Usage: cloudwave {start|status|logs}"
+    exit 1
+    ;;
+
+esac

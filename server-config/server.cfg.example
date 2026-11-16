@@ -1,0 +1,35 @@
+
+# ==========================================
+# Cloudwave - FiveM Server Configuration
+# Public template - no real secrets
+# ==========================================
+
+# Server identity
+sv_hostname "Cloudwave | Enhanced Free Roam"
+sets sv_projectName "Cloudwave"
+sets sv_projectDesc "Enhanced Free Roam FiveM Server"
+sets tags "freeroam, enhanced, vmenu"
+
+# Network configuration
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+
+# Maximum players
+sv_maxclients 48
+
+# Security
+sv_licenseKey "REPLACE_WITH_YOUR_CFX_SERVER_KEY"
+
+# OneSync
+set onesync on
+
+# Resources
+ensure mapmanager
+ensure spawnmanager
+ensure basic-gamemode
+
+# Add your vMenu Enhanced resources here
+# Example:
+# ensure vMenu.Enhanced
+
+# Add additional resources below
